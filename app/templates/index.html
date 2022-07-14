@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+<div class="container">
+  <div class="ring">
+    {% for i in img_gall %}
+      <div class="img" style="background-image: url(/{{i.photo}});" onclick="description()" ></div>
+      
+    {% endfor %}
+  </div>
+</div>
+{% endblock content %}
