@@ -18,6 +18,27 @@ html, body{
     position: absolute;
   }
   
+  #arrow{
+    top: 7%;
+    left: 5%;
+    opacity: 0;
+  }
+
+  .arrow_left{
+    width: 3vmin;
+	  height: 3vmin;
+	  background: transparent;
+	  border-top: 1vmin solid white;
+	  border-right: 1vmin solid white;
+	  box-shadow: 0 0 0 lightgray;
+	  transition: all 200ms ease;
+    transform: translate3d(0,-50%,0) rotate(-135deg);
+  }
+  .arrow_left:hover{
+    border-color: rgb(0, 51, 255);
+		box-shadow: 0.5vmin -0.5vmin 0 white;
+  }
+
   .container {
     perspective: 3000px;
     width: 20%;

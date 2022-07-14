@@ -68,6 +68,7 @@ function dragEnd(e){
 function getBgPos(){ 
   return ( 180-gsap.utils.wrap(0,360)) +'px 0px';
 }
+
 function description(){
   var target =  event.target;
   target.setAttribute("id","clickedImg");
@@ -88,12 +89,39 @@ function description(){
       left: '70%',
     })
     .to('#text_img',{
-      duration: 1,
+      duration: 0.1,
       opacity: 1,
     })
-    
-    
+    .to('#arrow', {
+      opacity: 1,
+    })
+}  
   
+function mainRing(){
+  let checkImg = document.getElementById('clickedImg');
+  checkImg.removeAttribute('id')
+  re();
+  gsap.timeline()
+    .to('#text_img',{
+      duration: 0.1,
+      opacity: 0,
+    })
+    .to('.ring',{
+      rotationY: 360,
+    })
+    .to('.container', {
+      width: '20%',
+      height: '40%',
+      left: '50%',
+    })
+    .to('.img',  { 
+      autoAlpha: 1,
+    })
+    .to('#arrow', {
+      opacity: 0,
+    })
 }
+  
+
 
     
