@@ -46,7 +46,10 @@ function re(){
         gsap.to('.img', {opacity:(i,t)=>(t==current)? 1:0.3, ease:'power3' })
       })
       $('.img').on('mouseleave', (e)=>{
-        gsap.to('.img', {opacity:1, width:"100%", ease:'power2.inOut'})
+        gsap.to('.img', {
+          opacity:1,
+          width:"100%", 
+          ease:'power2.inOut'})
       })
     }, '-=0.5')
     
@@ -54,14 +57,6 @@ function re(){
 /* $(window).on('mousedown touchstart', dragStart);
 $(window).on('mouseup touchend', dragEnd); */
 
-function setid()
-{
-  var elem = document.querySelectorAll('div.img');
-  var k = 0;
-  elem.forEach(element => {elem.id = k;s
-  k++; 
-  });
-}    
 
 /* function dragStart(e){ 
   if (e.touches) e.clientX = e.touches[0].clientX;
@@ -120,9 +115,10 @@ function description(){
     
 }  
   
+  
 function mainRing(){
-  animation.play();
   let checkImg = document.getElementById('clickedImg');
+  animation.play();
   checkImg.removeAttribute('id')
   re();
   gsap.timeline()
