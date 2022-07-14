@@ -4,7 +4,9 @@ html, body, .ring, .img {
     transform-style: preserve-3d;
   }
 
-
+body{
+  display: flex;
+}
 
 html, body{
     overflow:hidden;
@@ -31,7 +33,17 @@ html, body{
     background-position: center;
     
   }
-
+  #text_img{
+    padding: 2%;
+    opacity: 0;
+    width: 30%;
+    height: 40%;
+    border: 2px solid rgb(11, 11, 172);
+    background: rgba(0, 183, 255, 0.1);
+    border-radius: 10px;
+    left: 8%;
+    align-self: center;
+  }
 
   #footerId{
     /* width: 100%;

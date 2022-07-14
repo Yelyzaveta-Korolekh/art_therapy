@@ -31,7 +31,10 @@ function re(){
         gsap.to('.img', {opacity:(i,t)=>(t==current)? 1:0.3, ease:'power3' })
       })
       $('.img').on('mouseleave', (e)=>{
-        gsap.to('.img', {opacity:1, width:"100%", ease:'power2.inOut'})
+        gsap.to('.img', {
+          opacity:1,
+          width:"100%", 
+          ease:'power2.inOut'})
       })
     }, '-=0.5')
     
@@ -65,19 +68,31 @@ function dragEnd(e){
 function getBgPos(){ 
   return ( 180-gsap.utils.wrap(0,360)) +'px 0px';
 }
-
 function description(){
   var target =  event.target;
   target.setAttribute("id","clickedImg");
   gsap.timeline()
     .to('.img',  { 
       autoAlpha: 0,
-    })   
-  gsap.timeline()
-    .to('#clickedImg', 
-    {
-      autoAlpha: 1,
     })
+    .to('#clickedImg', {
+      autoAlpha: 1,
+      rotationY: '0deg',
+    })
+    .to('.ring',{
+      rotationY: '0',
+    })
+    .to('.container', {
+      width: '60%',
+      height: '80%',
+      left: '70%',
+    })
+    .to('#text_img',{
+      duration: 1,
+      opacity: 1,
+    })
+    
+    
   
 }
 
