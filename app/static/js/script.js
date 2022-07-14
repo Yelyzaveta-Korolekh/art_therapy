@@ -1,13 +1,26 @@
 document.addEventListener("DOMContentLoaded", re);
-document.addEventListener("DOMContentLoaded", setid);
+document.addEventListener("DOMContentLoaded", slidePict);
+
 
 let xPos = 0;
 let i=1;
+var animation;
+function slidePict(){
+  animation = gsap.fromTo('.ring', {
+    rotationY: 360,
+  }, {
+    rotationY: 0,
+    stagger: 0.1,
+    duration: 100,
+    repeat: -1,
+    ease: 'none',
+    
+  })
+}
 
-let kol = 0 
 function re(){
   gsap.timeline()
-    .set('.ring', { rotationY:360 })
+    /* .set('.ring', { rotationY:360 }) */
     .set('.img',  { 
       rotationY: (i)=> i*-36,
       transformOrigin: '50% 50% 500px',
@@ -17,6 +30,7 @@ function re(){
       i:"+=1"
     })   
    }
+
   gsap.timeline()
    
     .from('.img', {
@@ -37,8 +51,8 @@ function re(){
     }, '-=0.5')
     
 
-$(window).on('mousedown touchstart', dragStart);
-$(window).on('mouseup touchend', dragEnd);
+/* $(window).on('mousedown touchstart', dragStart);
+$(window).on('mouseup touchend', dragEnd); */
 
 function setid()
 {
@@ -49,14 +63,14 @@ function setid()
   });
 }    
 
-function dragStart(e){ 
+/* function dragStart(e){ 
   if (e.touches) e.clientX = e.touches[0].clientX;
   xPos = Math.round(e.clientX);
   $(window).on('mousemove touchmove', drag);
-}
+} */
 
 
-function drag(e){
+/* function drag(e){
   if (e.touches) e.clientX = e.touches[0].clientX;    
 
   gsap.to('.ring', {
@@ -68,16 +82,70 @@ function drag(e){
 }
 
 function dragEnd(e){
-  $(window).off('mousemove touchmove', drag);
-}
+  $(window).off('mousemove touch', drag);
+} */
 
 function getBgPos(){ 
   return ( 180-gsap.utils.wrap(0,360)) +'px 0px';
 }
 
 function description(){
+  animation.pause();
+  var target =  event.target;
+  target.setAttribute("id","clickedImg");
+  gsap.timeline()
+    .to('.img',  { 
+      autoAlpha: 0,
+    })
+    .to('#clickedImg', {
+      autoAlpha: 1,
+      rotationY: '0deg',
+    })
+    .to('.ring',{
+      rotationY: '0',
+    })
+    .to('.container', {
+      width: '60%',
+      height: '80%',
+      left: '70%',
+    })
+    .to('#text_img',{
+      duration: 0.1,
+      opacity: 1,
+    })
+    .to('#arrow', {
+      opacity: 1,
+    })
+    
+    
+}  
   
-  
+function mainRing(){
+  animation.play();
+  let checkImg = document.getElementById('clickedImg');
+  checkImg.removeAttribute('id')
+  re();
+  gsap.timeline()
+    .to('#text_img',{
+      duration: 0.1,
+      opacity: 0,
+    })
+    .to('.ring',{
+      rotationY: 360,
+    })
+    .to('.container', {
+      width: '20%',
+      height: '40%',
+      left: '50%',
+    })
+    .to('.img',  { 
+      autoAlpha: 1,
+    })
+    .to('#arrow', {
+      opacity: 0,
+    })
 }
+  
+
 
     

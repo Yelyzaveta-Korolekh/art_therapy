@@ -3,12 +3,21 @@
 
 
 {% block content %}
+<div id="arrow" onclick="mainRing()">
+  <div class="arrow_left"></div>   
+</div>
 <div class="container">
   <div class="ring">
     {% for i in img_gall %}
       <div class="img" style="background-image: url(/{{i.photo}});" onclick="description()" ></div>
       
     {% endfor %}
+    
   </div>
+</div>
+<div id="text_img" >
+    <h3></h3>
+    <div></div>
+    
 </div>
 {% endblock content %}
