@@ -11,8 +11,9 @@ html,body{
 }
 
   #arrow{
-    top: 7%;
-    left: 5%;
+    position: absolute;
+    top: 6%;
+    left: 2%;
     opacity: 0;
   }
 
@@ -65,18 +66,31 @@ html,body{
     font-size: 1.5vw;
     text-align: center;
     box-shadow: 12px 12px 2px 1px #56443f;;
+    border-radius: 10px;
   }
 
   .light {
     position: absolute;
     top: 0;
     align-self: center;
-    height: 179px;
+    height: 25%;
     width: 32%;
     transform: translateX(-2%) perspective(400px) rotateX(56deg);
     transform-origin: top center;
     background: linear-gradient(0deg, transparent, rgba(255, 255, 255, 0.8));
     z-index: 5;
+  }
+
+  #text_img{
+    position: absolute;
+    width: 34%;
+    height: 44%;
+    top: 28%;
+    left: 54%;
+    background-color: #eedad4;
+    box-shadow: 12px 12px 2px 1px #56443f;;
+    border-radius: 10px;
+    opacity: 0;
   }
   
   

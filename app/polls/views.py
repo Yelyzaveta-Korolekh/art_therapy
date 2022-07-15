@@ -5,6 +5,11 @@ from .models import Gallery
 
 def index(request):
     img_gall = Gallery.objects.all()
+    """  for i in img_gall:
+        if request.POST.get():
+            img = img_gall[i:i+2]
+        else:
+            break """
     img = img_gall[:2]
     return render(request, 'index.html', 
     {
