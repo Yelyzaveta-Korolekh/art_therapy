@@ -1,23 +1,15 @@
-html, body, .ring, .img {
+html,body{
     width:100%;
     height: 100%;
-    transform-style: preserve-3d;
+    margin: 0;
   }
 
-body{
+.container{
+  width: 100%;
+  height: 90%;
   display: flex;
 }
 
-html, body{
-    overflow:hidden;
-    background: radial-gradient(circle, rgba(233,233,233,1) 0%, rgba(148,187,233,1) 100%);
-    margin: 0;
-  }
-  
-  div{
-    position: absolute;
-  }
-  
   #arrow{
     top: 7%;
     left: 5%;
@@ -39,35 +31,54 @@ html, body{
 		box-shadow: 0.5vmin -0.5vmin 0 white;
   }
 
-  .container {
-    perspective: 3000px;
-    width: 20%;
-    height: 40%;  
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
+  .small_cont{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
   }
 
   .img{
+    width: 67%;
+    height: 54%;
+    margin: 10% 5%;
+    border: 30px ridge #92513e;
+    background-color: white;
+    /* border: 10px solid black; */
+    /* border-image: url('../images/border.jpg') 40/ 30px repeat; */
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    
-  }
-  #text_img{
-    padding: 2%;
-    opacity: 0;
-    width: 30%;
-    height: 40%;
-    border: 2px solid rgb(11, 11, 172);
-    background: rgba(0, 183, 255, 0.1);
-    border-radius: 10px;
-    left: 8%;
-    align-self: center;
+    position: relative;
   }
 
-  #footerId{
-    /* width: 100%;
-    height: 10%;
-    background-color: antiquewhite; */
+  .sign{
+    padding: 2%;
+    position: absolute;
+    height: 5%;
+    width: 20%;
+    bottom: 14%;
+    background-color: #eedad4;
+    align-self: center;
+    font-size: 1.5vw;
+    text-align: center;
+    box-shadow: 12px 12px 2px 1px #56443f;;
   }
+
+  .light {
+    position: absolute;
+    top: 0;
+    align-self: center;
+    height: 179px;
+    width: 32%;
+    transform: translateX(-2%) perspective(400px) rotateX(56deg);
+    transform-origin: top center;
+    background: linear-gradient(0deg, transparent, rgba(255, 255, 255, 0.8));
+    z-index: 5;
+  }
+  
+  
+  
+ 

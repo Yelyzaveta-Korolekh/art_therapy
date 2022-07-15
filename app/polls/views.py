@@ -5,9 +5,11 @@ from .models import Gallery
 
 def index(request):
     img_gall = Gallery.objects.all()
+    img = img_gall[:2]
     return render(request, 'index.html', 
     {
         'img_gall': img_gall,
+        'img':img,
      })
 
 def hall(request):
