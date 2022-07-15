@@ -3,6 +3,11 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 
+class Topics(models.Model):
+    name= models.CharField(max_length=100)
+    description = models.TextField(max_length=4096)
+    forTime = models.DateField()
+
 class Gallery(models.Model):
     '''
     Model Gallery
@@ -23,6 +28,13 @@ class Gallery(models.Model):
     photo = models.ImageField(
         upload_to='static/photo',
         verbose_name=_('Photo'))
+    topic = models.ForeignKey(
+        Topics, 
+        on_delete=models.CASCADE, 
+        default=None,
+        blank=True,
+        null=True,
+        verbose_name=_('topic of gallery'))
 
     class Meta:
         '''
@@ -35,8 +47,5 @@ class Gallery(models.Model):
     def __str__(self) -> str:
         return str(self.name)
 
-class Topics(models.Model):
-    name= models.CharField(max_length=100)
-    description = models.TextField(max_length=4096)
-    forTime = models.DateField()
+
 

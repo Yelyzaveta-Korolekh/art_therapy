@@ -3,7 +3,9 @@
 
 
 {% block content %}
-<div class="container">
-  <input type="button">
+<div class="hall_container">
+  {% for i in topics %}
+    <div class="topics">{{i.name}}</div>
+  {% endfor %}
 </div>
 {% endblock content %}

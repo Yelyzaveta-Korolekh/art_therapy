@@ -20,7 +20,6 @@ function slidePict(){
 
 function re(){
   gsap.timeline()
-    /* .set('.ring', { rotationY:360 }) */
     .set('.img',  { 
       rotationY: (i)=> i*-36,
       transformOrigin: '50% 50% 500px',
@@ -53,32 +52,6 @@ function re(){
       })
     }, '-=0.5')
     
-
-/* $(window).on('mousedown touchstart', dragStart);
-$(window).on('mouseup touchend', dragEnd); */
-
-
-/* function dragStart(e){ 
-  if (e.touches) e.clientX = e.touches[0].clientX;
-  xPos = Math.round(e.clientX);
-  $(window).on('mousemove touchmove', drag);
-} */
-
-
-/* function drag(e){
-  if (e.touches) e.clientX = e.touches[0].clientX;    
-
-  gsap.to('.ring', {
-    rotationY: '-=' +( (Math.round(e.clientX)-xPos)%360 ),
-    onUpdate:()=>{ gsap.set('.img', { backgroundPosition:(i)=>getBgPos() }) }
-  });
-  
-  xPos = Math.round(e.clientX);
-}
-
-function dragEnd(e){
-  $(window).off('mousemove touch', drag);
-} */
 
 function getBgPos(){ 
   return ( 180-gsap.utils.wrap(0,360)) +'px 0px';
@@ -141,7 +114,5 @@ function mainRing(){
       opacity: 0,
     })
 }
-  
-
 
     
