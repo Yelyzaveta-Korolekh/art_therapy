@@ -1,10 +1,5 @@
 
-
-
-function description(){
-    let target = event.target;
-    target.setAttribute("id","clickedImg");
-
+function descGsap(){
     gsap.timeline()
     .to('.light', {
         scale: 1,
@@ -16,20 +11,38 @@ function description(){
     .to('.img',  { 
       autoAlpha: 0,
     })
-    .to('#clickedImg', {
-      top: "+=10%",
-      autoAlpha: 1,
-      scale: 1.2,
+    .to('.button-arrow',{
+        autoAlpha: 0,
     })
+    .to('#clickedImg', {
+        top: "+=10%",
+        autoAlpha: 1,
+        scale: 1.2,
+      })
     .to('#text_img',  { 
-        autoAlpha: 0.9,
+        autoAlpha: 1,
       })
     .to('#arrow', {
         autoAlpha: 1,
     })
-    
-    
+}
+
+function description(){
+    let targetimg = event.target;
+    let target = targetimg.parentNode;
+    target.setAttribute("id","clicked");
+    targetimg.setAttribute("id", "clickedImg");
+    let fChild = document.getElementById('container');
+    if(fChild.childNodes[1].id == 'clicked'){
+        descGsap();
+    }
+    else if(fChild.childNodes[3].id == 'clicked'){
         
+        let elem = document.querySelectorAll('#text_img')[1];
+        elem.style.left = '10%';
+        descGsap();
+    }
+
 }
 
 function mainPage(){
@@ -55,7 +68,11 @@ function mainPage(){
     .to('.sign', {
         autoAlpha: 1,
     })
+    .to('.button-arrow',{
+        autoAlpha: 1,
+    })
     document.getElementById('clickedImg').removeAttribute('id');
+    document.getElementById('clicked').removeAttribute('id');
 }
 
     
