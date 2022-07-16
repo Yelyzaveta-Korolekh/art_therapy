@@ -55,11 +55,7 @@ function mainPage(){
     .to('.sign', {
         autoAlpha: 1,
     })
-    
-    
-   
-      document.getElementById('clickedImg').removeAttribute('id');
+    document.getElementById('clickedImg').removeAttribute('id');
 }
-
 
     

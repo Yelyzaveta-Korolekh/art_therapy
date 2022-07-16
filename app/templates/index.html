@@ -18,11 +18,16 @@
     
   <!-- </div> -->
 </div>
-<div id="text_img" >
-    <h3></h3>
-    <div></div>
-</div>
+{%for i in img%}
+  <div id="text_img" >
+      <h3>{{i.name}}</h3>
+      <div>{{i.description}}</div>
+  </div>
+{% endfor %}
 <div id="arrow" onclick="mainPage()">
   <div class="arrow_left"></div>   
 </div>
+<form method="post">{% csrf_token %}
+  <button class="button-arrow">→</button>
+</form>
 {% endblock content %}
