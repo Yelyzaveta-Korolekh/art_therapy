@@ -16,6 +16,7 @@ function descGsap(){
     })
     .to('#clickedImg', {
         top: "+=10%",
+       /*  left: "+=10%", */
         autoAlpha: 1,
         scale: 1.2,
       })
@@ -35,6 +36,7 @@ function description(){
     let fChild = document.getElementById('container');
     if(fChild.childNodes[1].id == 'clicked'){
         descGsap();
+        target.style.left = '10%';
     }
     else if(fChild.childNodes[3].id == 'clicked'){
         

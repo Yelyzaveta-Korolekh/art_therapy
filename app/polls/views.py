@@ -1,17 +1,20 @@
 from multiprocessing import context
-from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Gallery
+from django.core.paginator import Paginator
 
 def index(request):
     img_gall = Gallery.objects.all()
-    
-    img = Gallery.objects.order_by('?')[:2]
-    
+
+    paginator = Paginator(img_gall, 2)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+
     return render(request, 'index.html', 
     {
         'img_gall': img_gall,
-        'img':img,
+        'page_obj':page_obj,
      })
 
 def hall(request):

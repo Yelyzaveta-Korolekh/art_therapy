@@ -6,7 +6,7 @@
 
 
 <div id="container">
-    {%for i in img%}
+    {% for i in page_obj %}
     <div class="small_cont">
       <div class="light"></div>
       <div class="img"  style="background-image: url(/{{i.photo}});" onclick="description()" ></div>
@@ -14,16 +14,19 @@
     </div>
     {% endfor %}
 </div>
-{%for i in img%}
+{%for i in page_obj %}
   <div id="text_img" >
-      <h3>{{i.name}}</h3>
+      <h3>{{i.name|upper}}</h3>
       <div>{{i.description}}</div>
   </div>
 {% endfor %}
 <div id="arrow" onclick="mainPage()">
   <div class="arrow_left"></div>   
 </div>
-<form method="post">{% csrf_token %}
-  <button class="button-arrow">→</button>
-</form>
+      {% if page_obj.has_previous %}
+          <a href="?page={{ page_obj.previous_page_number }}"><button class="button-arrow previous_page">←</button></a>
+      {% endif %}
+      {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}"><button class="button-arrow next_page">→</button></a>
+      {% endif %}
 {% endblock content %}
