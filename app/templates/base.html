@@ -12,7 +12,8 @@
         <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
         <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
     </head>
-    <body style=" background-image: url('static/images/background.png');">
+    <body style=" background-image: url('static/images/background.png');"  >
+              
         {% block header %}
         {% endblock header %}
   
@@ -20,7 +21,6 @@
         {% endblock content %}
 
         {% block footer %}
-        <div id="footerId"></div>
         {% endblock footer %}
 
     </body>
